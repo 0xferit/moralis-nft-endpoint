@@ -9,7 +9,8 @@ exports.handler = async (event, context) => {
         const response = await axios.get(apiUrl, {
             headers: {
                 'X-API-Key': API_KEY,
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                "Access-Control-Allow-Origin": "*", // Required for CORS support to work
             }
         });
 
@@ -24,9 +25,7 @@ exports.handler = async (event, context) => {
             statusCode: 200,
             body: JSON.stringify(data),
             headers: {
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Origin": "*",
-            },
+                'Content-Type': 'application/json',            },
         };
     } catch (error) {
         return {
