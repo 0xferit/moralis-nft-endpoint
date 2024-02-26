@@ -9,7 +9,9 @@ exports.handler = async (event, context) => {
             headers: {
                 'X-API-Key': API_KEY,
                 'Accept': 'application/json',
-                "Access-Control-Allow-Origin": "*", // Required for CORS support to work     
+                "Access-Control-Allow-Origin": "*",  
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
             }
         });
 
