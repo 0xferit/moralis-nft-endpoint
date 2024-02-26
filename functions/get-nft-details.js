@@ -3,8 +3,8 @@ const API_KEY = process.env.MORALIS_API_KEY;
 
 exports.handler = async (event, context) => {
     try {
-        const { address,tokenId } = event.queryStringParameters;
-        const apiUrl = `https://deep-index.moralis.io/api/v2.2/nft/${address}/${tokenId}`
+        const { address,tokenId, chain } = event.queryStringParameters;
+        const apiUrl = `https://deep-index.moralis.io/api/v2.2/nft/${address}/${tokenId}?chain=${chain}`;
 
         const response = await axios.get(apiUrl, {
             headers: {
