@@ -10,8 +10,6 @@ exports.handler = async (event, context) => {
                 'X-API-Key': API_KEY,
                 'Accept': 'application/json',
                 "Access-Control-Allow-Origin": "*",  
-                'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
             }
         });
 
@@ -26,7 +24,8 @@ exports.handler = async (event, context) => {
             statusCode: 200,
             body: JSON.stringify(data),
             headers: {
-                'Content-Type': 'application/json',            },
+                'Content-Type': 'application/json'
+            },
         };
     } catch (error) {
         return {
