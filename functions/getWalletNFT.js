@@ -3,14 +3,13 @@ const API_KEY = process.env.MORALIS_API_KEY;
 
 exports.handler = async (event, context) => {
     try {
-        const { address,tokenId, chain } = event.queryStringParameters;
-        const apiUrl = `https://deep-index.moralis.io/api/v2.2/nft/${address}/${tokenId}?chain=${chain}`;
-
+        const { address} = event.queryStringParameters;
+        const apiUrl = `https://deep-index.moralis.io/api/v2.2/${address}/nft`; // getWalletNFTs
         const response = await axios.get(apiUrl, {
             headers: {
                 'X-API-Key': API_KEY,
                 'Accept': 'application/json',
-                "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+                "Access-Control-Allow-Origin": "*", // Required for CORS support to work     
             }
         });
 
